@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Dimensions,
-} from "react-native";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { Button, Avatar, Provider, Divider } from "react-native-paper";
 import { React, useState } from "react";
 
@@ -25,7 +18,7 @@ export default function PageHome({ route, navigation }) {
       <View style={styles.containerProp}>
         <Avatar.Image
           size={200}
-          backgroundColor="#000"
+          backgroundColor="#11194bff"
           source={{
             uri: avatar,
           }}
@@ -37,11 +30,21 @@ export default function PageHome({ route, navigation }) {
   return (
     <Provider>
       <View style={styles.container}>
-        <Button mode="outlined" onPress={() => setVisible(true)}>
+        <Button
+          style={styles.btn}
+          textColor="#fff"
+          mode="outlined"
+          onPress={() => setVisible(true)}
+        >
           {selected}
         </Button>
 
-        <Button mode="outlined" onPress={() => navigation.goBack("PageFirst")}>
+        <Button
+          style={styles.btn}
+          textColor="#fff"
+          mode="outlined"
+          onPress={() => navigation.goBack("PageFirst")}
+        >
           Voltar
         </Button>
         {visible && (
@@ -51,6 +54,7 @@ export default function PageHome({ route, navigation }) {
                 <Text style={styles.titleNav}>Seu perfil</Text>
 
                 <Button
+                  textColor="#fff"
                   onPress={() => setVisible(false)}
                   style={styles.closeButton}
                 >
@@ -75,6 +79,7 @@ const styles = StyleSheet.create({
     gap: 40,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#7f88c5ff",
   },
   modalOverlay: {
     position: "absolute",
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
   dropdown: {
     width: "90%",
     height: height * 0.8,
-    backgroundColor: "#fff",
+    backgroundColor: "#7f88c5ff",
     borderRadius: 12,
     padding: 10,
   },
@@ -106,10 +111,14 @@ const styles = StyleSheet.create({
     gap: 40,
   },
   titleNav: {
+    color: "#fff",
     fontWeight: "bold",
   },
   name: {
     fontSize: 30,
     fontWeight: "bold",
+  },
+  btn: {
+    backgroundColor: "#11194bff",
   },
 });

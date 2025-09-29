@@ -2,15 +2,6 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 import { Button, Avatar } from "react-native-paper";
 import { useState } from "react";
 
-{
-  /*Olhar quais bliotecas tão sendo usadas para colcoar na documentação
-  ver isso 
-  npm install react-native-paper
-
-
-  */
-}
-
 export default function PageFirst({ navigation }) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -22,7 +13,7 @@ export default function PageFirst({ navigation }) {
       <View style={styles.icon}>
         <Avatar.Image
           size={100}
-          backgroundColor="#000"
+          backgroundColor="#11194bff"
           source={{
             uri: avatar
               ? avatar
@@ -51,6 +42,10 @@ export default function PageFirst({ navigation }) {
       </View>
 
       <Button
+        style={[
+          styles.button,
+          { backgroundColor: isValid ? "#cdcdd1ff" : "#11194bff" },
+        ]}
         mode="contained"
         disabled={isValid}
         onPress={() => navigation.navigate("PageHome", { name, avatar })}
@@ -64,7 +59,7 @@ export default function PageFirst({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#7f88c5ff",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -76,6 +71,7 @@ const styles = StyleSheet.create({
   },
 
   input: {
+    backgroundColor: "#b1b7dbff",
     marginTop: 10,
     borderWidth: 1,
     padding: 8,
